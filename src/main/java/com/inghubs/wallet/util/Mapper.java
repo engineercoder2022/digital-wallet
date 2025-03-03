@@ -1,6 +1,6 @@
 package com.inghubs.wallet.util;
 
-import com.inghubs.wallet.api.TransactionsResponse;
+import com.inghubs.wallet.api.model.response.TransactionsResponse;
 import com.inghubs.wallet.api.model.response.WalletsResponse;
 import com.inghubs.wallet.repository.entity.Transaction;
 import com.inghubs.wallet.repository.entity.Wallet;

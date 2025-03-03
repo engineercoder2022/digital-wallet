@@ -1,4 +1,4 @@
-package com.inghubs.wallet.api;
+package com.inghubs.wallet.api.model.request;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;

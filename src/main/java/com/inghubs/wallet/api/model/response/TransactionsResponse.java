@@ -1,4 +1,4 @@
-package com.inghubs.wallet.api;
+package com.inghubs.wallet.api.model.response;
 
 import com.inghubs.wallet.constants.ApiConstraint.Validation;
 import com.inghubs.wallet.repository.entity.Status;

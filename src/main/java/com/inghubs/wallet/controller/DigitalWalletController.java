@@ -1,8 +1,8 @@
 package com.inghubs.wallet.controller;
 
-import com.inghubs.wallet.api.WalletBalanceRequest;
+import com.inghubs.wallet.api.model.request.WalletBalanceRequest;
 import com.inghubs.wallet.api.DigitalWalletApi;
-import com.inghubs.wallet.api.TransactionsResponse;
+import com.inghubs.wallet.api.model.response.TransactionsResponse;
 import com.inghubs.wallet.api.model.request.ApproveRequest;
 import com.inghubs.wallet.api.model.request.CreateWalletRequest;
 import com.inghubs.wallet.api.model.response.WalletsResponse;
@@ -10,11 +10,8 @@ import com.inghubs.wallet.service.DigitalWalletService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

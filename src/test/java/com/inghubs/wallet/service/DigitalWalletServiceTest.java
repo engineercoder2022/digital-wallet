@@ -8,7 +8,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.inghubs.wallet.api.WalletBalanceRequest;
+import com.inghubs.wallet.api.model.request.WalletBalanceRequest;
 import com.inghubs.wallet.api.model.request.ApproveRequest;
 import com.inghubs.wallet.api.model.request.CreateWalletRequest;
 import com.inghubs.wallet.repository.DigitalWalletRepository;
@@ -16,7 +16,6 @@ import com.inghubs.wallet.repository.TransactionRepository;
 import com.inghubs.wallet.repository.entity.Customer;
 import com.inghubs.wallet.repository.entity.Status;
 import com.inghubs.wallet.repository.entity.Transaction;
-import com.inghubs.wallet.repository.entity.TransactionType;
 import com.inghubs.wallet.repository.entity.Wallet;
 import java.math.BigDecimal;
 import java.util.Arrays;

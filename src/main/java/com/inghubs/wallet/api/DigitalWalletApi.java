@@ -2,6 +2,8 @@ package com.inghubs.wallet.api;
 
 import com.inghubs.wallet.api.model.request.ApproveRequest;
 import com.inghubs.wallet.api.model.request.CreateWalletRequest;
+import com.inghubs.wallet.api.model.request.WalletBalanceRequest;
+import com.inghubs.wallet.api.model.response.TransactionsResponse;
 import com.inghubs.wallet.api.model.response.WalletsResponse;
 import com.inghubs.wallet.api.model.response.DigitalWalletErrorResponse;
 import com.inghubs.wallet.constants.ApiConstraint.Name;

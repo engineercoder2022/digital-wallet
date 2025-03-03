@@ -4,8 +4,8 @@ import static com.inghubs.wallet.repository.entity.Status.APPROVED;
 import static com.inghubs.wallet.repository.entity.Status.PENDING;
 import static com.inghubs.wallet.repository.entity.TransactionType.DEPOSIT;
 
-import com.inghubs.wallet.api.TransactionsResponse;
-import com.inghubs.wallet.api.WalletBalanceRequest;
+import com.inghubs.wallet.api.model.response.TransactionsResponse;
+import com.inghubs.wallet.api.model.request.WalletBalanceRequest;
 import com.inghubs.wallet.api.model.request.ApproveRequest;
 import com.inghubs.wallet.api.model.request.CreateWalletRequest;
 import com.inghubs.wallet.api.model.response.WalletsResponse;
@@ -50,7 +50,7 @@ public class DigitalWalletService {
   public List<WalletsResponse> getCustomerWallets(long customerId) {
     List<Wallet> wallets = digitalWalletRepository
         .findAllByCustomer(Customer.builder().id(customerId).build());
-    return wallets.stream().map(w -> Mapper.mapToWalletsResponse(w)).toList();
+    return wallets.stream().map(Mapper::mapToWalletsResponse).toList();
   }
 
   @Transactional
@@ -100,7 +100,7 @@ public class DigitalWalletService {
     List<Transaction> allByWallet = transactionRepository.findAllByWallet(
         Wallet.builder().id(walletId).build());
     return allByWallet.stream()
-        .map(t -> Mapper.mapToTransactionResponse(t)).toList();
+        .map(Mapper::mapToTransactionResponse).toList();
   }
 
   @Transactional
@@ -109,7 +109,7 @@ public class DigitalWalletService {
         .findById(request.transactionId()).get();
     if (trx.getStatus().equals(PENDING)) {
       if (request.status().equals(APPROVED)) {
-        approveTransaction(request, trx);
+        approveTransaction(trx);
       } else {
         denyTransaction(trx);
       }
@@ -132,7 +132,7 @@ public class DigitalWalletService {
     }
   }
 
-  private void approveTransaction(ApproveRequest request, Transaction trx) {
+  private void approveTransaction(Transaction trx) {
     Wallet wallet = trx.getWallet();
     if (trx.getTransactionType().equals(DEPOSIT)) {
       BigDecimal approvedBalance = wallet.getUsableBalance().add(trx.getAmount());
